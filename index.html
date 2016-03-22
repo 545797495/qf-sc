@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+  </head>
+
+  <body>
+    <div class="sroller-div" id="wrapper">
+      <div class="scroller">
+        <section class="m-list" id="classList">
+          <!--
+          <article>
+            <a href="#" class="flex-box"> <img src="img/test/1.jpg" class="list-img" />
+              <div class="list-rcon flex-item relative">
+                <h3 class="m-head">Lina俱乐部分享计划</h3>
+                <p>上课时间：2016.2.1-2016.3.1</p>
+                <div class="class-list flex-box">
+                  <label>课程：</label>
+                  <p class="flex-item clearfix"><span>《管理学》</span><span>《法务管理学》</span><span>《运筹学》</span></p>
+                </div>
+                <span class="span-status bg-orange tc">待报名</span>
+              </div>
+            </a>
+          </article>
+          <article>
+            <a href="#" class="flex-box"> <img src="img/test/1.jpg" class="list-img" />
+              <div class="list-rcon flex-item relative">
+                <h3 class="m-head">Lina俱乐部分享计划</h3>
+                <p>上课时间：2016.2.1-2016.3.1</p>
+                <div class="class-list flex-box">
+                  <label>课程：</label>
+                  <p class="flex-item clearfix"><span>《管理学》</span><span>《法务管理学》</span><span>《运筹学》</span></p>
+                </div>
+                <span class="span-status bg-green tc">待评价</span>
+              </div>
+            </a>
+          </article>-->
+        </section>
+        <div id="pullUp" class="pull-up tc">
+          <i class="icon icon-down preloader"></i><span class="pullUpLabel">上拉更新</span>
+        </div>
+        <p class="tc list-tips" id="listTip">没有更多了</p>
+
+      </div>
+    </div>
+    <footer class="m-footer flex-box tc" id="fixBox">
+      <div class="flex-item cur">
+
+        <a class="m-menu" href="index.html">
+        <i class="iconfont icon-home01"></i>
+          <p>首&nbsp;页</p>
+        </a>
+
+      </div>
+      <div class="flex-item">
+        <a class="m-menu" href="#">
+          <i class="iconfont icon-pinggu01"></i>
+          <p>测&nbsp;评</p>
+        </a>
+      </div>
+      <div class="flex-item relative">
+        <a class="m-menu" href="javascript:;" id="classNav">
+          <i class="iconfont icon-renyuan01"></i>
+          <p>我的课程</p>
+        </a>
+        <div class="sub-menu">
+          <ul>
+            <li><a href="my_class.html" class="line cur">待上课<span>（3）</span></a></li>
+            <li><a href="my_class.html" class="line">待评价<span>（99）</span></a></li>
+          </ul>
+          <div class="relative"><i class="triangle-upgray"></i>
+            <i class="triangle-upfff"></i></div>
+        </div>
+      </div>
+    </footer>
+    <script src="vendors/jquery-2.0.0.min.js "></script>
+    <script src="vendors/iscroll.min.js "></script>
+    <script src="js/common.js"></script>
+    <script src="js/page.js "></script>
+    <!--首页的上拉加载等js-->
+    <script src="js/index.js "></script>
+    <script type="text/javascript">
+    	$(function(){
+    	   showmsg('乐部分享计划');
+    	})
+    </script>
+  </body>
+
+</html>

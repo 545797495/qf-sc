@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>绑定账号</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+  </head>
+
+  <body style="background: #fff;">
+    <form>
+      <div class="form-box">
+        <p class="error-tip" id="errorTip">&nbsp;</p>
+        <div class="form-item flex-box">
+          <i class="iconfont icon-shouji01"></i>
+          <input id="myPhone" type="text" class="flex-item" placeholder="请输入手机号码" />
+        </div>
+        <div class="flex-box mt2rem">
+          <div class="form-item flex-box flex-item">
+            <i class="iconfont icon-jiemasuo01"></i>
+            <input type="text" class="flex-item" placeholder="请输入验证码" />
+          </div>
+          <input type="button" id="sendVcode" class="form-a tc" value="点击发送验证码" readonly="readonly" />
+        </div>
+        <a class="max-btn bg-orange tc" href="javascript:;" id="bindAccount">立即绑定</a>
+      </div>
+    </form>
+    <script src="vendors/jquery-2.0.0.min.js "></script>
+    <script type="text/javascript">
+      $(function() {
+        $('#myPhone').on('blur', function() {
+          testPhone();
+        })
+        $('#sendVcode').on('click', function() {
+          if (!$(this).hasClass('dis')) {
+            var phoneReturn = testPhone();
+            /*发送验证码*/
+            if (phoneReturn) {
+              var timeCount = 60; //时间 
+              time($('#sendVcode'), timeCount);
+            }
+          }
+        });
+
+        function time(o, timeCount) {
+          if (timeCount == 0) {
+            o.removeClass('dis');
+            o.val("点击发送验证码");
+            timeCount = 60;
+          } else {
+            o.addClass('dis');
+            o.val(timeCount + "秒后重发");
+            timeCount--;
+            setTimeout(function() {
+                time(o, timeCount);
+              },
+              1000)
+          }
+        }
+
+        function testPhone() {
+          /*此处加个nbsp;为了占取高度不能去掉哦*/
+          $('#errorTip').html('&nbsp;');
+          var myPhone = $('#myPhone').val();
+          var phoneformat = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(88[0-9]{1}))+\d{8})$/;
+          if (!phoneformat.test(myPhone)) {
+            $('#errorTip').append('<i class="iconfont icon-notice"></i>您输入的手机号有误');
+            $('#myPhone').parent('.form-item').addClass('error');
+            $('#myPhone').focus();
+            return false;
+          } else {
+            $('#errorTip').html('&nbsp;');
+            $('#myPhone').parent('.form-item').removeClass('error');
+            return true;
+          }
+        }
+      });
+    </script>
+  </body>
+
+</html>
